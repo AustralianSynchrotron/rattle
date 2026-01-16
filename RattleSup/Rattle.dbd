@@ -1,0 +1,9 @@
+# File: Rattle.dbd
+# DateTime: Fri Mar 28 12:27:18 2025
+# Last checked in by: starritt
+#
+
+function (RattleInit)
+function (RattleProcess)
+
+# end

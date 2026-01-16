@@ -1,0 +1,94 @@
+# $File$
+# $Revision$
+# $DateTime$
+# Last checked in by: $Author$
+#
+
+record (bo, "RESET_CMD") {
+    field (DESC, "Reset")
+    field (SCAN, "Passive")
+    field (HIGH, "1.1")
+    field (ZNAM, "No action")
+    field (ONAM, "Reset")
+}
+
+record (calc, "COUNTER") {
+    field (DESC, "Input value")
+    field (SCAN, "1 second")
+    field (INPA, "COUNTER")
+    field (INPB, "30")
+    field (CALC, "A < B ? A+0.1 : 0")
+    field (PREC, 3)
+
+    field (FLNK, "TECALC")
+}
+
+record (longout, "WINDOW") {
+    field (DESC, "Reset")
+    field (SCAN, "Passive")
+    field (PINI, "YES")
+    field (VAL,  "314")
+    field (DRVL, "2")
+    field (DRVH, "2333")
+}
+
+record (aSub, "TECALC") {
+    field (DESC, "Rate ETC Calc")
+    field (SCAN, "Passive")
+    field (INAM, "RattleInit")
+    field (SNAM, "RattleProcess")
+
+    field (INPA, "COUNTER MSI")
+    field (FTA,  "DOUBLE")
+    field (NOA,  "1")
+
+    field (INPB, "10")
+    field (FTB,  "LONG")
+    field (NOB,  "1")
+
+    field (INPC, "6.0")
+    field (FTC,  "DOUBLE")
+    field (NOC,  "1")
+
+    field (INPD, "20")
+    field (FTD,  "LONG")
+    field (NOD,  "1")
+
+    field (INPE, "12.0")
+    field (FTE,  "DOUBLE")
+    field (NOE,  "1")
+
+    field (INPL, "1")                    # no decimation
+    field (FTL,  "LONG")
+    field (NOL,  "1")
+
+    field (INPJ, "0")                    # ignore severity
+    field (FTJ,  "LONG")
+    field (NOJ,  "1")
+
+    field (INPM, "360")                  # Max
+    field (FTM,  "LONG")
+    field (NOM,  "1")
+
+    field (INPR, "RESET_CMD")
+    field (FTR,  "LONG")
+    field (NOR,  "1")
+
+    # Outputs
+    field (FTVA, "LONG")
+    field (NOVA, "1")
+
+    field (FTVB, "DOUBLE")               # Rate
+    field (NOVB, "1")
+
+    field (FTVC, "DOUBLE")               # ETA
+    field (NOVC, "1")
+
+    field (FTVD, "DOUBLE")               # Rate
+    field (NOVD, "1")
+
+    field (FTVE, "DOUBLE")               # ETA
+    field (NOVE, "1")
+}
+
+# end
